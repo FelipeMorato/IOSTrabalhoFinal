@@ -7,25 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A08F99F2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A08F99D2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld */; };
+		7A26DDE7245CCDD600065F69 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A26DDE6245CCDD600065F69 /* Settings.bundle */; };
+		7A8DF3A8245DEF0900B2E3FA /* EstadoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8DF3A7245DEF0900B2E3FA /* EstadoTableViewCell.swift */; };
+		7AA5997D244FA0C600D66066 /* ListaComprasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5997C244FA0C600D66066 /* ListaComprasTableViewCell.swift */; };
+		7AA5997F244FA15500D66066 /* RegistraCompraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5997E244FA15500D66066 /* RegistraCompraViewController.swift */; };
+		7AA59981244FD5EB00D66066 /* CadastrarEstadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA59980244FD5EB00D66066 /* CadastrarEstadoViewController.swift */; };
+		7ACD77F224563E8C00BC7A08 /* UIVIewController+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACD77F124563E8C00BC7A08 /* UIVIewController+Context.swift */; };
 		7AFF7523244E55DB00F5773C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF7522244E55DB00F5773C /* AppDelegate.swift */; };
-		7AFF7525244E55DB00F5773C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF7524244E55DB00F5773C /* SceneDelegate.swift */; };
-		7AFF7527244E55DB00F5773C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF7526244E55DB00F5773C /* ViewController.swift */; };
-		7AFF752A244E55DB00F5773C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFF7528244E55DB00F5773C /* Main.storyboard */; };
-		7AFF752D244E55DB00F5773C /* FelipeRafaelRogerValmir.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF752B244E55DB00F5773C /* FelipeRafaelRogerValmir.xcdatamodeld */; };
 		7AFF752F244E55DC00F5773C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AFF752E244E55DC00F5773C /* Assets.xcassets */; };
 		7AFF7532244E55DC00F5773C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFF7530244E55DC00F5773C /* LaunchScreen.storyboard */; };
+		7AFF753E244E5DFE00F5773C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFF753D244E5DFE00F5773C /* Main.storyboard */; };
+		7AFF7540244E5F1E00F5773C /* ListaComprasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF753F244E5F1E00F5773C /* ListaComprasTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7AFF751F244E55DB00F5773C /* FelipeRafaelRogerValmir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FelipeRafaelRogerValmir.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A08F99E2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FelipeRafaelRogerValmir.xcdatamodel; sourceTree = "<group>"; };
+		7A26DDE6245CCDD600065F69 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		7A8DF3A7245DEF0900B2E3FA /* EstadoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstadoTableViewCell.swift; sourceTree = "<group>"; };
+		7AA5997C244FA0C600D66066 /* ListaComprasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaComprasTableViewCell.swift; sourceTree = "<group>"; };
+		7AA5997E244FA15500D66066 /* RegistraCompraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistraCompraViewController.swift; sourceTree = "<group>"; };
+		7AA59980244FD5EB00D66066 /* CadastrarEstadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastrarEstadoViewController.swift; sourceTree = "<group>"; };
+		7ACD77F124563E8C00BC7A08 /* UIVIewController+Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Context.swift"; sourceTree = "<group>"; };
+		7AFF751F244E55DB00F5773C /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AFF7522244E55DB00F5773C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7AFF7524244E55DB00F5773C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7AFF7526244E55DB00F5773C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7AFF7529244E55DB00F5773C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7AFF752C244E55DB00F5773C /* FelipeRafaelRogerValmir.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FelipeRafaelRogerValmir.xcdatamodel; sourceTree = "<group>"; };
 		7AFF752E244E55DC00F5773C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AFF7531244E55DC00F5773C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AFF7533244E55DC00F5773C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AFF753D244E5DFE00F5773C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7AFF753F244E5F1E00F5773C /* ListaComprasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaComprasTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +60,7 @@
 		7AFF7520244E55DB00F5773C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7AFF751F244E55DB00F5773C /* FelipeRafaelRogerValmir.app */,
+				7AFF751F244E55DB00F5773C /* ComprasUSA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,13 +69,18 @@
 			isa = PBXGroup;
 			children = (
 				7AFF7522244E55DB00F5773C /* AppDelegate.swift */,
-				7AFF7524244E55DB00F5773C /* SceneDelegate.swift */,
-				7AFF7526244E55DB00F5773C /* ViewController.swift */,
-				7AFF7528244E55DB00F5773C /* Main.storyboard */,
 				7AFF752E244E55DC00F5773C /* Assets.xcassets */,
 				7AFF7530244E55DC00F5773C /* LaunchScreen.storyboard */,
 				7AFF7533244E55DC00F5773C /* Info.plist */,
-				7AFF752B244E55DB00F5773C /* FelipeRafaelRogerValmir.xcdatamodeld */,
+				7AFF753D244E5DFE00F5773C /* Main.storyboard */,
+				7AFF753F244E5F1E00F5773C /* ListaComprasTableViewController.swift */,
+				7AA5997C244FA0C600D66066 /* ListaComprasTableViewCell.swift */,
+				7AA5997E244FA15500D66066 /* RegistraCompraViewController.swift */,
+				7AA59980244FD5EB00D66066 /* CadastrarEstadoViewController.swift */,
+				7A8DF3A7245DEF0900B2E3FA /* EstadoTableViewCell.swift */,
+				7ACD77F124563E8C00BC7A08 /* UIVIewController+Context.swift */,
+				7A26DDE6245CCDD600065F69 /* Settings.bundle */,
+				7A08F99D2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld */,
 			);
 			path = FelipeRafaelRogerValmir;
 			sourceTree = "<group>";
@@ -87,7 +102,7 @@
 			);
 			name = FelipeRafaelRogerValmir;
 			productName = FelipeRafaelRogerValmir;
-			productReference = 7AFF751F244E55DB00F5773C /* FelipeRafaelRogerValmir.app */;
+			productReference = 7AFF751F244E55DB00F5773C /* ComprasUSA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,9 +143,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A26DDE7245CCDD600065F69 /* Settings.bundle in Resources */,
+				7AFF753E244E5DFE00F5773C /* Main.storyboard in Resources */,
 				7AFF7532244E55DC00F5773C /* LaunchScreen.storyboard in Resources */,
 				7AFF752F244E55DC00F5773C /* Assets.xcassets in Resources */,
-				7AFF752A244E55DB00F5773C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +157,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AFF7527244E55DB00F5773C /* ViewController.swift in Sources */,
 				7AFF7523244E55DB00F5773C /* AppDelegate.swift in Sources */,
-				7AFF752D244E55DB00F5773C /* FelipeRafaelRogerValmir.xcdatamodeld in Sources */,
-				7AFF7525244E55DB00F5773C /* SceneDelegate.swift in Sources */,
+				7AFF7540244E5F1E00F5773C /* ListaComprasTableViewController.swift in Sources */,
+				7AA59981244FD5EB00D66066 /* CadastrarEstadoViewController.swift in Sources */,
+				7ACD77F224563E8C00BC7A08 /* UIVIewController+Context.swift in Sources */,
+				7A8DF3A8245DEF0900B2E3FA /* EstadoTableViewCell.swift in Sources */,
+				7AA5997D244FA0C600D66066 /* ListaComprasTableViewCell.swift in Sources */,
+				7A08F99F2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld in Sources */,
+				7AA5997F244FA15500D66066 /* RegistraCompraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7AFF7528244E55DB00F5773C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7AFF7529244E55DB00F5773C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7AFF7530244E55DC00F5773C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -220,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -290,14 +302,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FelipeRafaelRogerValmir/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.FelipeRafaelRogerValmir.FelipeRafaelRogerValmir;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.fiap.FelipeRafaelRogerValmir;
+				PRODUCT_NAME = ComprasUSA;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,14 +320,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FelipeRafaelRogerValmir/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.FelipeRafaelRogerValmir.FelipeRafaelRogerValmir;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.fiap.FelipeRafaelRogerValmir;
+				PRODUCT_NAME = ComprasUSA;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -342,12 +356,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7AFF752B244E55DB00F5773C /* FelipeRafaelRogerValmir.xcdatamodeld */ = {
+		7A08F99D2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7AFF752C244E55DB00F5773C /* FelipeRafaelRogerValmir.xcdatamodel */,
+				7A08F99E2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodel */,
 			);
-			currentVersion = 7AFF752C244E55DB00F5773C /* FelipeRafaelRogerValmir.xcdatamodel */;
+			currentVersion = 7A08F99E2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodel */;
 			path = FelipeRafaelRogerValmir.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
