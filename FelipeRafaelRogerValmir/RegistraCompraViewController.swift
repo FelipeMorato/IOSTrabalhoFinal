@@ -24,24 +24,32 @@ class RegistraCompraViewController: UIViewController {
     
     var fetchedResultsController: NSFetchedResultsController<Estado>!
     
+    let ud = UserDefaults.standard
+    var cotacao: String = ""
+    var iof: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Cadastrar Produto"
+        self.view.backgroundColor = .white
         self.swtPagamentoCartao.isOn = true
         self.ivProduto.isHidden = true
         self.btnSelectImage.isHidden = false
-        
-        setupForPickerView()
-        
         loadStates()
+        setupForPickerView()
+        loadParameterBundle()
         
-        self.view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loadStates()
+    }
+    
+    func loadParameterBundle(){
+        self.cotacao = ud.string(forKey: UserDefaultKeys.cotacao.rawValue) ?? ""
+        self.iof = ud.string(forKey: UserDefaultKeys.iof.rawValue) ?? ""
     }
     
     func setupForPickerView() {
@@ -86,10 +94,11 @@ class RegistraCompraViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
          fetchRequest.sortDescriptors = [sortDescriptor]
                 
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil) as? NSFetchedResultsController<Estado>
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil) 
         
         fetchedResultsController.delegate = self
         try? fetchedResultsController.performFetch()
+        estados = fetchedResultsController.fetchedObjects!
     }
     
     func selectPicture(sourceType: UIImagePickerController.SourceType) {
@@ -100,7 +109,7 @@ class RegistraCompraViewController: UIViewController {
     }
     
     @IBAction func btnSelectImage(_ sender: Any) {
-        let alert = UIAlertController(title: "Selecionar poster", message: "De onde você deseja escolher o poster?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Selecionar Imagem", message: "De onde você deseja escolher a imagem?", preferredStyle: .actionSheet)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "Câmera", style: .default) { (_) in
@@ -127,6 +136,7 @@ class RegistraCompraViewController: UIViewController {
     
     @IBAction func save(_ sender: Any) {
         
+        loadParameterBundle()
         var valid = true
         var messages = [String]()
         
@@ -148,6 +158,25 @@ class RegistraCompraViewController: UIViewController {
         if ivProduto.image == nil {
             valid = false
             messages.append("Selecione a imagem do produto.")
+        }
+        
+        if swtPagamentoCartao.isOn {
+            
+            messages.append("Você selecionou compra com cartão")
+            
+            if cotacao == "" {
+                valid = false
+                messages.append("Cadastro da cotação do dólar não encontrado")
+            }
+            
+            if iof == "" {
+                valid = false
+                messages.append("Cadastro do IOF não encontrado.")
+            }
+            
+            if valid {
+                messages.removeAll()
+            }
         }
         
         var errorMessages: String = ""
@@ -177,14 +206,15 @@ class RegistraCompraViewController: UIViewController {
         
         try? context.save()
         
-        self.txtValor.text = ""
-        self.txtNomeProduto.text = ""
-        self.txtEstadoCompra.text = ""
-        self.btnSelectImage.isHidden = false
-        self.ivProduto.isHidden = true
-        self.swtPagamentoCartao.isOn = true
+        if valid {
+            self.txtValor.text = ""
+            self.txtNomeProduto.text = ""
+            self.txtEstadoCompra.text = ""
+            self.btnSelectImage.isHidden = false
+            self.ivProduto.isHidden = true
+            self.swtPagamentoCartao.isOn = true
+        }
     }
-    
 }
 
 extension RegistraCompraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -209,7 +239,12 @@ extension RegistraCompraViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        txtEstadoCompra.text = estados[row].nome ?? ""
+        if estados.count > 0{
+            txtEstadoCompra.text = estados[row].nome
+        }
+        else {
+            txtEstadoCompra.text = ""
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

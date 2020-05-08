@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A08F99F2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A08F99D2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld */; };
 		7A26DDE7245CCDD600065F69 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A26DDE6245CCDD600065F69 /* Settings.bundle */; };
+		7A6A006F2464EE2A00D8A471 /* TotaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A006E2464EE2A00D8A471 /* TotaisViewController.swift */; };
 		7A8DF3A8245DEF0900B2E3FA /* EstadoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8DF3A7245DEF0900B2E3FA /* EstadoTableViewCell.swift */; };
 		7AA5997D244FA0C600D66066 /* ListaComprasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5997C244FA0C600D66066 /* ListaComprasTableViewCell.swift */; };
 		7AA5997F244FA15500D66066 /* RegistraCompraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA5997E244FA15500D66066 /* RegistraCompraViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		7A08F99E2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FelipeRafaelRogerValmir.xcdatamodel; sourceTree = "<group>"; };
 		7A26DDE6245CCDD600065F69 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		7A6A006E2464EE2A00D8A471 /* TotaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotaisViewController.swift; sourceTree = "<group>"; };
 		7A8DF3A7245DEF0900B2E3FA /* EstadoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstadoTableViewCell.swift; sourceTree = "<group>"; };
 		7AA5997C244FA0C600D66066 /* ListaComprasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaComprasTableViewCell.swift; sourceTree = "<group>"; };
 		7AA5997E244FA15500D66066 /* RegistraCompraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistraCompraViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				7AA59980244FD5EB00D66066 /* CadastrarEstadoViewController.swift */,
 				7A8DF3A7245DEF0900B2E3FA /* EstadoTableViewCell.swift */,
 				7ACD77F124563E8C00BC7A08 /* UIVIewController+Context.swift */,
+				7A6A006E2464EE2A00D8A471 /* TotaisViewController.swift */,
 				7A26DDE6245CCDD600065F69 /* Settings.bundle */,
 				7A08F99D2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld */,
 			);
@@ -165,6 +168,7 @@
 				7AA5997D244FA0C600D66066 /* ListaComprasTableViewCell.swift in Sources */,
 				7A08F99F2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld in Sources */,
 				7AA5997F244FA15500D66066 /* RegistraCompraViewController.swift in Sources */,
+				7A6A006F2464EE2A00D8A471 /* TotaisViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

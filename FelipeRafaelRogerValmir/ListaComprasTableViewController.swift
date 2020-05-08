@@ -35,19 +35,21 @@ class ListaComprasTableViewController: UITableViewController {
        fetchedResultsController.delegate = self
        try? fetchedResultsController.performFetch()
         
-        /*
-        if fetchRequest.fetchBatchSize < 1 {
+        
+        if fetchedResultsController.fetchedObjects?.count == 0 {
             
             lblListaComprasVazia.isHidden = false
             lblListaComprasVazia.text = "Sua lista está vazia!"
+            lblListaComprasVazia.textAlignment = .center
+            lblListaComprasVazia.textColor = .lightGray
         
-            lblListaComprasVazia.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200).isActive = true
-            lblListaComprasVazia.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30).isActive = true
-            lblListaComprasVazia.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 30).isActive = true
-            
-            
+            //lblListaComprasVazia.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -10).isActive = true
+            //lblListaComprasVazia.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30).isActive = true
+            //lblListaComprasVazia.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 30).isActive = true
+            lblListaComprasVazia.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor).isActive = true
+            lblListaComprasVazia.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
         }
-         */
+         
     }
 
     // MARK: - Table view data source

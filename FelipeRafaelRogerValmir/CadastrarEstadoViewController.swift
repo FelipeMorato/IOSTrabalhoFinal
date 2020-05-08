@@ -14,6 +14,7 @@ class CadastrarEstadoViewController: UIViewController {
     @IBOutlet weak var txtCotacao: UITextField!
     @IBOutlet weak var txtIof: UITextField!
     @IBOutlet weak var estadosTableView: UITableView!
+    @IBOutlet weak var lblMessageStatesEmpty: UILabel!
     
     let ud = UserDefaults.standard
     var estado: Estado?
@@ -31,12 +32,17 @@ class CadastrarEstadoViewController: UIViewController {
         self.estadosTableView.dataSource = self
         self.estadosTableView.delegate = self
         
+        self.lblMessageStatesEmpty.isHidden = true
+        self.lblMessageStatesEmpty.text = ""
+        self.lblMessageStatesEmpty.textColor = .lightGray
+        
         loadStates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         txtCotacao.text = ud.string(forKey: UserDefaultKeys.cotacao.rawValue)
         txtIof.text = ud.string(forKey: UserDefaultKeys.iof.rawValue)
+        setupMessageEmpty()
     }
     
     func loadStates() {
@@ -50,6 +56,20 @@ class CadastrarEstadoViewController: UIViewController {
         fetchedResultsController.delegate = self
         try? fetchedResultsController.performFetch()
         estados = fetchedResultsController.fetchedObjects!
+        estadosTableView.reloadData()
+        setupMessageEmpty()
+    }
+    
+    func setupMessageEmpty() {
+        if fetchedResultsController.fetchedObjects?.count == 0 {
+            self.lblMessageStatesEmpty.isHidden = false
+            self.lblMessageStatesEmpty.text = "Lista de estados vazia."
+            self.lblMessageStatesEmpty.textAlignment = .center
+        }
+        else {
+            self.lblMessageStatesEmpty.isHidden = true
+            self.lblMessageStatesEmpty.text = ""
+        }
     }
 
     @IBAction func AdicionarEstado(_ sender: Any) {
@@ -79,8 +99,8 @@ class CadastrarEstadoViewController: UIViewController {
             self.estado?.imposto = Double(imposto)!
             
             try? self.context.save()
-             
-            self.estadosTableView.reloadData()
+                
+            self.loadStates()
         })
         
         alert.addAction(okAction)
@@ -109,7 +129,7 @@ extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return estados.count
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,6 +154,7 @@ extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDeleg
             
             try? context.save()
             
+            setupMessageEmpty()
         }
     }
 }
