@@ -16,9 +16,8 @@ class CadastrarEstadoViewController: UIViewController {
     @IBOutlet weak var estadosTableView: UITableView!
     
     let ud = UserDefaults.standard
-    
     var estado: Estado?
-    
+    var estados: [Estado] = []
     var fetchedResultsController: NSFetchedResultsController<Estado>!
     
     override func viewDidLoad() {
@@ -29,13 +28,15 @@ class CadastrarEstadoViewController: UIViewController {
         txtCotacao.text = ud.string(forKey: UserDefaultKeys.cotacao.rawValue)
         txtIof.text = ud.string(forKey: UserDefaultKeys.iof.rawValue)
         
+        self.estadosTableView.dataSource = self
+        self.estadosTableView.delegate = self
+        
         loadStates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         txtCotacao.text = ud.string(forKey: UserDefaultKeys.cotacao.rawValue)
         txtIof.text = ud.string(forKey: UserDefaultKeys.iof.rawValue)
-        
     }
     
     func loadStates() {
@@ -43,13 +44,12 @@ class CadastrarEstadoViewController: UIViewController {
         let fetchRequest: NSFetchRequest<Estado> = Estado.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        
+                
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchedResultsController.delegate = self
         try? fetchedResultsController.performFetch()
-        
-        self.estadosTableView.reloadData()
+        estados = fetchedResultsController.fetchedObjects!
     }
 
     @IBAction func AdicionarEstado(_ sender: Any) {
@@ -73,7 +73,10 @@ class CadastrarEstadoViewController: UIViewController {
              }
              
             self.estado?.nome = alert?.textFields![0].text ?? ""
-            self.estado?.imposto = alert?.textFields![1].text ?? ""
+            
+            let imposto = alert?.textFields![1].text ?? "0"
+            
+            self.estado?.imposto = Double(imposto)!
             
             try? self.context.save()
              
@@ -92,7 +95,6 @@ class CadastrarEstadoViewController: UIViewController {
     @IBAction func txtChangeIof(_ sender: Any) {
         ud.set(txtIof.text!, forKey: UserDefaultKeys.iof.rawValue)
     }
-    
 }
 
 enum UserDefaultKeys: String {
@@ -100,36 +102,29 @@ enum UserDefaultKeys: String {
     case iof = "iof"
 }
 
-extension CadastrarEstadoViewController: NSFetchedResultsControllerDelegate {
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        self.estadosTableView.reloadData()
-    }
-}
-
 extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDelegate {
-     func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+        return estados.count
     }
-
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? EstadoTableViewCell else {
-            return UITableViewCell()
+        guard let cell = self.estadosTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            as? EstadoTableViewCell else {
+                return UITableViewCell()
         }
-
+        
         let estado = fetchedResultsController.object(at: indexPath)
         
         cell.prepare(with: estado)
 
         return cell
     }
-
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -140,5 +135,12 @@ extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDeleg
             try? context.save()
             
         }
+    }
+}
+
+extension CadastrarEstadoViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        self.estadosTableView.reloadData()
     }
 }

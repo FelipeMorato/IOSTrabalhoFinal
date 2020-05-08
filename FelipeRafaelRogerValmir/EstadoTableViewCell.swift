@@ -12,6 +12,7 @@ class EstadoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblNomeEstado: UILabel!
     @IBOutlet weak var lblImpostoEstado: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,7 +27,7 @@ class EstadoTableViewCell: UITableViewCell {
     func prepare(with estado: Estado) {
         
         self.lblNomeEstado.text = estado.nome
-        self.lblImpostoEstado.text = estado.imposto
+        self.lblImpostoEstado.text = "\(estado.imposto)"
     }
 
 }

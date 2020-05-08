@@ -105,6 +105,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RXx-qR-zo5" id="2mY-E0-xQT"/>
+                                    <outlet property="delegate" destination="RXx-qR-zo5" id="JXS-lg-kZq"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -135,7 +139,7 @@
                     <tabBarItem key="tabBarItem" title="Ajustes" image="settings" id="kgh-Cw-bxy"/>
                     <navigationItem key="navigationItem" id="C8Q-nd-GAw"/>
                     <connections>
-                        <outlet property="estadosTableView" destination="IxY-8Q-w9l" id="xdK-rx-ETr"/>
+                        <outlet property="estadosTableView" destination="IxY-8Q-w9l" id="vOI-pr-j6A"/>
                         <outlet property="txtCotacao" destination="gq6-SX-rkl" id="UZc-lt-00K"/>
                         <outlet property="txtIof" destination="7gA-G7-JhL" id="sLy-go-agb"/>
                     </connections>

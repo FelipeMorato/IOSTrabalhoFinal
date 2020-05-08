@@ -9,7 +9,7 @@
         <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Estado" inverseName="newRelationship" inverseEntity="Estado"/>
     </entity>
     <entity name="Estado" representedClassName="Estado" syncable="YES" codeGenerationType="class">
-        <attribute name="imposto" optional="YES" attributeType="String"/>
+        <attribute name="imposto" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
         <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Compra" inverseName="newRelationship" inverseEntity="Compra"/>
     </entity>
