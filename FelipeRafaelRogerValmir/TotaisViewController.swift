@@ -18,6 +18,7 @@ class TotaisViewController: UIViewController {
     var cotacao: Double = 0
     var iof: Double = 0
     var totalCompraUSA: Double = 0
+    var totalComrasBRA: Double = 0
     
     var fetchedResultsControllerCompra: NSFetchedResultsController<Compra>!
     var fetchedResultsControllerEstado: NSFetchedResultsController<Estado>!
@@ -47,6 +48,7 @@ class TotaisViewController: UIViewController {
     
     func loadTotais(){
         totalUSA()
+        totalBRA()
     }
     
     func totalUSA() {
@@ -58,6 +60,33 @@ class TotaisViewController: UIViewController {
         
         self.lblTotalUSA.text = String(format: "%.2f", self.totalCompraUSA)
         self.totalCompraUSA = 0
+    }
+    
+    func totalBRA(){
+        let compras = fetchedResultsControllerCompra.fetchedObjects!
+        let estados = fetchedResultsControllerEstado.fetchedObjects!
+        for item in compras {
+            
+            var valImposto: Double = 0
+            
+            for estado in estados {
+                if item.estado == estado.nome {
+                    valImposto = estado.imposto
+                }
+            }
+            
+            let valorComCotacao = (item.valor + (item.valor * (valImposto / 100))) * self.cotacao
+            
+            if(item.comCartao) {
+                self.totalComrasBRA += valorComCotacao + (valorComCotacao * (self.iof / 100))
+            }
+            else {
+                self.totalComrasBRA += valorComCotacao
+            }
+        }
+        
+        self.lblTotalBRA.text = String(format: "%.2f", self.totalComrasBRA)
+        self.totalComrasBRA = 0
     }
     
     func loadCompras() {

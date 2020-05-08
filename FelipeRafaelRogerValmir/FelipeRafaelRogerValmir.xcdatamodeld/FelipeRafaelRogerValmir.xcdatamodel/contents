@@ -6,15 +6,14 @@
         <attribute name="imagem" optional="YES" attributeType="Transformable"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
         <attribute name="valor" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Estado" inverseName="newRelationship" inverseEntity="Estado"/>
     </entity>
     <entity name="Estado" representedClassName="Estado" syncable="YES" codeGenerationType="class">
         <attribute name="imposto" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Compra" inverseName="newRelationship" inverseEntity="Compra"/>
+        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Compra"/>
     </entity>
     <elements>
-        <element name="Compra" positionX="-260.578125" positionY="64.078125" width="128" height="28"/>
-        <element name="Estado" positionX="-54" positionY="27" width="128" height="88"/>
+        <element name="Estado" positionX="-63" positionY="-36" width="128" height="88"/>
+        <element name="Compra" positionX="-329.6171875" positionY="-85.8984375" width="128" height="118"/>
     </elements>
 </model>

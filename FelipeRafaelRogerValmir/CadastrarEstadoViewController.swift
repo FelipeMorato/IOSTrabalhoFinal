@@ -65,6 +65,12 @@ class CadastrarEstadoViewController: UIViewController {
             self.lblMessageStatesEmpty.isHidden = false
             self.lblMessageStatesEmpty.text = "Lista de estados vazia."
             self.lblMessageStatesEmpty.textAlignment = .center
+            
+            self.lblMessageStatesEmpty.translatesAutoresizingMaskIntoConstraints = false
+            
+            self.lblMessageStatesEmpty.topAnchor.constraint(equalTo: self.estadosTableView.topAnchor, constant: 120).isActive = true
+            self.lblMessageStatesEmpty.centerXAnchor.constraint(equalTo: self.estadosTableView.centerXAnchor).isActive = true
+            
         }
         else {
             self.lblMessageStatesEmpty.isHidden = true

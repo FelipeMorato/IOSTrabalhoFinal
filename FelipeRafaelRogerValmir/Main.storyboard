@@ -57,14 +57,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ld-Mv-dpC">
-                                <rect key="frame" x="221" y="610.5" width="173" height="185.5"/>
+                                <rect key="frame" x="221" y="766" width="173" height="30"/>
                                 <state key="normal" title="Adicionar estado"/>
                                 <connections>
                                     <action selector="AdicionarEstado:" destination="RXx-qR-zo5" eventType="touchUpInside" id="tBK-eU-pyg"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IxY-8Q-w9l">
-                                <rect key="frame" x="5" y="317.5" width="404" height="261"/>
+                                <rect key="frame" x="5" y="317.5" width="404" height="416.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="EhA-ns-NgX" customClass="EstadoTableViewCell" customModule="ComprasUSA" customModuleProvider="target">
@@ -134,13 +134,11 @@
                             <constraint firstItem="Ipi-9x-ku9" firstAttribute="trailing" secondItem="7ld-Mv-dpC" secondAttribute="trailing" constant="20" id="YJN-6W-XwG"/>
                             <constraint firstItem="Ipi-9x-ku9" firstAttribute="trailing" secondItem="7gA-G7-JhL" secondAttribute="trailing" constant="20" id="Yto-fW-vuW"/>
                             <constraint firstItem="Ipi-9x-ku9" firstAttribute="trailing" secondItem="IxY-8Q-w9l" secondAttribute="trailing" constant="5" id="ZJS-Jd-qng"/>
-                            <constraint firstItem="jAB-hX-bdw" firstAttribute="centerY" secondItem="IxY-8Q-w9l" secondAttribute="centerY" id="d6y-ux-eGS"/>
                             <constraint firstItem="QpR-XR-34Q" firstAttribute="leading" secondItem="Ipi-9x-ku9" secondAttribute="leading" constant="50" id="lGI-tI-gUk"/>
                             <constraint firstItem="IxY-8Q-w9l" firstAttribute="leading" secondItem="Ipi-9x-ku9" secondAttribute="leading" constant="5" id="naS-8M-5py"/>
                             <constraint firstItem="Ipi-9x-ku9" firstAttribute="trailing" secondItem="gq6-SX-rkl" secondAttribute="trailing" constant="20" id="pyu-DJ-Hg6"/>
                             <constraint firstItem="gq6-SX-rkl" firstAttribute="leading" secondItem="JdP-Vm-yqb" secondAttribute="trailing" constant="20" id="tM4-GR-Wyj"/>
                             <constraint firstItem="h44-gc-zkG" firstAttribute="leading" secondItem="Ipi-9x-ku9" secondAttribute="leading" constant="100" id="u99-Hz-Cc9"/>
-                            <constraint firstItem="jAB-hX-bdw" firstAttribute="centerX" secondItem="IxY-8Q-w9l" secondAttribute="centerX" id="uvd-ge-3D3"/>
                             <constraint firstItem="Ipi-9x-ku9" firstAttribute="bottom" secondItem="7ld-Mv-dpC" secondAttribute="bottom" constant="17" id="wlr-6x-796"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ipi-9x-ku9"/>

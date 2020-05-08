@@ -82,8 +82,8 @@
 				7A8DF3A7245DEF0900B2E3FA /* EstadoTableViewCell.swift */,
 				7ACD77F124563E8C00BC7A08 /* UIVIewController+Context.swift */,
 				7A6A006E2464EE2A00D8A471 /* TotaisViewController.swift */,
-				7A26DDE6245CCDD600065F69 /* Settings.bundle */,
 				7A08F99D2462200B00F9B3EC /* FelipeRafaelRogerValmir.xcdatamodeld */,
+				7A26DDE6245CCDD600065F69 /* Settings.bundle */,
 			);
 			path = FelipeRafaelRogerValmir;
 			sourceTree = "<group>";
