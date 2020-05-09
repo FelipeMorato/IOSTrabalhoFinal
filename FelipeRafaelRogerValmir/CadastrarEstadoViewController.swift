@@ -20,6 +20,7 @@ class CadastrarEstadoViewController: UIViewController {
     var estado: Estado?
     var estados: [Estado] = []
     var fetchedResultsController: NSFetchedResultsController<Estado>!
+    var fetchedResultsControllerCompra: NSFetchedResultsController<Compra>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,18 @@ class CadastrarEstadoViewController: UIViewController {
         estados = fetchedResultsController.fetchedObjects!
         estadosTableView.reloadData()
         setupMessageEmpty()
+    }
+    
+    func loadCompras() {
+    
+        let fetchRequest: NSFetchRequest<Compra> = Compra.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+                
+        fetchedResultsControllerCompra = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchedResultsControllerCompra.delegate = self
+        try? fetchedResultsControllerCompra.performFetch()
     }
     
     func setupMessageEmpty() {
@@ -156,11 +169,25 @@ extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDeleg
         if editingStyle == .delete {
             
             let estado = fetchedResultsController.object(at: indexPath)
+            
+            loadCompras()
+            
+            let compras = fetchedResultsControllerCompra.fetchedObjects!
+            
+            for compra in compras {
+                if compra.estado == estado.nome {
+                    context.delete(compra)
+                    try? context.save()
+                }
+            }
+            
             context.delete(estado)
             
             try? context.save()
             
             setupMessageEmpty()
+            
+            //let compra =
         }
     }
 }

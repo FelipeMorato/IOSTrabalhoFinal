@@ -10,10 +10,9 @@
     <entity name="Estado" representedClassName="Estado" syncable="YES" codeGenerationType="class">
         <attribute name="imposto" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
-        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Compra"/>
     </entity>
     <elements>
-        <element name="Estado" positionX="-63" positionY="-36" width="128" height="88"/>
         <element name="Compra" positionX="-329.6171875" positionY="-85.8984375" width="128" height="118"/>
+        <element name="Estado" positionX="-63" positionY="-36" width="128" height="73"/>
     </elements>
 </model>
