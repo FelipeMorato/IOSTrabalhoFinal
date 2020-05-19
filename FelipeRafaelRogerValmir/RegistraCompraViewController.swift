@@ -39,6 +39,7 @@ class RegistraCompraViewController: UIViewController {
         loadStates()
         setupForPickerView()
         loadParameterBundle()
+        txtValor.delegate = self
         
     }
     
@@ -78,14 +79,18 @@ class RegistraCompraViewController: UIViewController {
         self.txtEstadoCompra.inputAccessoryView = toolBar
         
         self.txtEstadoCompra.inputView = statePickerView
+        
+        self.txtValor.inputAccessoryView = toolBar
     }
     
     @objc func doneClick() {
         txtEstadoCompra.resignFirstResponder()
+        txtValor.resignFirstResponder()
     }
     
     @objc func cancelClick() {
         txtEstadoCompra.resignFirstResponder()
+        txtValor.resignFirstResponder()
     }
     
     func loadStates() {
@@ -215,6 +220,7 @@ class RegistraCompraViewController: UIViewController {
             self.swtPagamentoCartao.isOn = true
         }
     }
+    
 }
 
 extension RegistraCompraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -256,5 +262,18 @@ extension RegistraCompraViewController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         estados = fetchedResultsController.fetchedObjects!
+    }
+}
+
+extension RegistraCompraViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        //For mobile numer validation
+        if textField == txtValor {
+            let allowedCharacters = CharacterSet(charactersIn:"+0123456789")
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        return true
     }
 }

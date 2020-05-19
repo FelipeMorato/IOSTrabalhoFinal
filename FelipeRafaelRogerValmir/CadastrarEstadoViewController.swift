@@ -186,8 +186,6 @@ extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDeleg
             try? context.save()
             
             setupMessageEmpty()
-            
-            //let compra =
         }
     }
 }
