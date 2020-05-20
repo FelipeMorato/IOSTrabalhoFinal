@@ -38,6 +38,8 @@ class CadastrarEstadoViewController: UIViewController {
         self.lblMessageStatesEmpty.textColor = .lightGray
         
         loadStates()
+        setupToolbar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +47,35 @@ class CadastrarEstadoViewController: UIViewController {
         txtIof.text = ud.string(forKey: UserDefaultKeys.iof.rawValue)
         setupMessageEmpty()
     }
+    
+    func setupToolbar(){
+        // ToolBar
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .blue// UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        toolBar.sizeToFit()
+
+        // Adding Button ToolBar
+        let doneButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(doneClick))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelClick))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        txtIof.inputAccessoryView = toolBar
+        txtCotacao.inputAccessoryView = toolBar
+    }
+    
+    @objc func doneClick() {
+           txtIof.resignFirstResponder()
+           txtCotacao.resignFirstResponder()
+       }
+       
+       @objc func cancelClick() {
+           txtIof.resignFirstResponder()
+           txtCotacao.resignFirstResponder()
+       }
     
     func loadStates() {
     

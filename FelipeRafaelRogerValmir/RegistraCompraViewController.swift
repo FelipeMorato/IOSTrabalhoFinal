@@ -81,16 +81,20 @@ class RegistraCompraViewController: UIViewController {
         self.txtEstadoCompra.inputView = statePickerView
         
         self.txtValor.inputAccessoryView = toolBar
+        
+        self.txtNomeProduto.inputAccessoryView = toolBar
     }
     
     @objc func doneClick() {
         txtEstadoCompra.resignFirstResponder()
         txtValor.resignFirstResponder()
+        txtNomeProduto.resignFirstResponder()
     }
     
     @objc func cancelClick() {
         txtEstadoCompra.resignFirstResponder()
         txtValor.resignFirstResponder()
+        txtNomeProduto.resignFirstResponder()
     }
     
     func loadStates() {
