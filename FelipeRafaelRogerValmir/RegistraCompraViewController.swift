@@ -170,20 +170,22 @@ class RegistraCompraViewController: UIViewController {
         }
         
         if swtPagamentoCartao.isOn {
-            
+            var validWithCard = false
             messages.append("Você selecionou compra com cartão")
             
             if cotacao == "" {
                 valid = false
+                validWithCard = true
                 messages.append("Cadastro da cotação do dólar não encontrado")
             }
             
             if iof == "" {
                 valid = false
+                validWithCard = true
                 messages.append("Cadastro do IOF não encontrado.")
             }
             
-            if valid {
+            if valid && validWithCard {
                 messages.removeAll()
             }
         }
@@ -201,6 +203,7 @@ class RegistraCompraViewController: UIViewController {
             alert.addAction(cancelAction)
             
             present(alert, animated: true, completion: nil)
+            return
         }
         
         if compra == nil {
@@ -274,7 +277,7 @@ extension RegistraCompraViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //For mobile numer validation
         if textField == txtValor {
-            let allowedCharacters = CharacterSet(charactersIn:"+0123456789")
+            let allowedCharacters = CharacterSet(charactersIn:".+0123456789")
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
         }

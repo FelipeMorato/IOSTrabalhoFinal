@@ -39,7 +39,6 @@ class CadastrarEstadoViewController: UIViewController {
         
         loadStates()
         setupToolbar()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -207,9 +206,9 @@ extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDeleg
             
             for compra in compras {
                 if compra.estado == estado.nome {
-                    context.delete(compra)
-                    try? context.save()
-                }
+                   context.delete(compra)
+                   try? context.save()
+               }
             }
             
             context.delete(estado)

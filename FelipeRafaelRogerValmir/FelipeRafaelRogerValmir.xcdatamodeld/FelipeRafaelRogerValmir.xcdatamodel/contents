@@ -13,6 +13,6 @@
     </entity>
     <elements>
         <element name="Compra" positionX="-329.6171875" positionY="-85.8984375" width="128" height="118"/>
-        <element name="Estado" positionX="-63" positionY="-36" width="128" height="73"/>
+        <element name="Estado" positionX="10.265625" positionY="-50.78125" width="128" height="73"/>
     </elements>
 </model>
