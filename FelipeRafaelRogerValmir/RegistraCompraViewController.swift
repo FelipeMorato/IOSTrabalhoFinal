@@ -275,7 +275,7 @@ extension RegistraCompraViewController: NSFetchedResultsControllerDelegate {
 extension RegistraCompraViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //For mobile numer validation
+        
         if textField == txtValor {
             let allowedCharacters = CharacterSet(charactersIn:".+0123456789")
             let characterSet = CharacterSet(charactersIn: string)

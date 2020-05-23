@@ -30,32 +30,40 @@ class CadastrarEstadoViewController: UIViewController {
         txtCotacao.text = ud.string(forKey: UserDefaultKeys.cotacao.rawValue)
         txtIof.text = ud.string(forKey: UserDefaultKeys.iof.rawValue)
         
-        self.estadosTableView.dataSource = self
-        self.estadosTableView.delegate = self
+        txtCotacao.delegate = self
+        txtIof.delegate = self
         
-        self.lblMessageStatesEmpty.isHidden = true
-        self.lblMessageStatesEmpty.text = ""
-        self.lblMessageStatesEmpty.textColor = .lightGray
+        estadosTableView.dataSource = self
+        estadosTableView.delegate = self
+        
+        lblMessageStatesEmpty.isHidden = true
+        lblMessageStatesEmpty.text = ""
+        lblMessageStatesEmpty.textColor = .lightGray
         
         loadStates()
         setupToolbar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         txtCotacao.text = ud.string(forKey: UserDefaultKeys.cotacao.rawValue)
         txtIof.text = ud.string(forKey: UserDefaultKeys.iof.rawValue)
         setupMessageEmpty()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        estadosTableView.reloadData()
+    }
+    
     func setupToolbar(){
-        // ToolBar
+        
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = .blue// UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        toolBar.tintColor = .blue
         toolBar.sizeToFit()
 
-        // Adding Button ToolBar
         let doneButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(doneClick))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelClick))
@@ -87,7 +95,7 @@ class CadastrarEstadoViewController: UIViewController {
         fetchedResultsController.delegate = self
         try? fetchedResultsController.performFetch()
         estados = fetchedResultsController.fetchedObjects!
-        estadosTableView.reloadData()
+        self.estadosTableView.reloadData()
         setupMessageEmpty()
     }
     
@@ -147,9 +155,10 @@ class CadastrarEstadoViewController: UIViewController {
             
             self.estado?.imposto = Double(imposto)!
             
-            try? self.context.save()
-                
-            self.loadStates()
+            DispatchQueue.main.async {
+                try? self.context.save()
+            }
+            
         })
         
         alert.addAction(okAction)
@@ -178,19 +187,20 @@ extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+        let rows = fetchedResultsController.fetchedObjects?.count ?? 0
+        return rows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = self.estadosTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = estadosTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             as? EstadoTableViewCell else {
                 return UITableViewCell()
         }
         
-        let estado = fetchedResultsController.object(at: indexPath)
-        
-        cell.prepare(with: estado)
+        let newState = fetchedResultsController.object(at: indexPath)
+      
+        cell.prepare(with: newState)
 
         return cell
     }
@@ -223,7 +233,28 @@ extension CadastrarEstadoViewController: UITableViewDataSource, UITableViewDeleg
 extension CadastrarEstadoViewController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
-        estados = fetchedResultsController.fetchedObjects!
-        self.estadosTableView.reloadData()
+        DispatchQueue.main.async {
+            self.loadStates()
+        }
+    }
+}
+
+extension CadastrarEstadoViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == txtCotacao {
+            let allowedCharacters = CharacterSet(charactersIn:".0123456789")
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        
+        if textField == txtIof {
+            let allowedCharacters = CharacterSet(charactersIn:".0123456789")
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        
+        return true
     }
 }
